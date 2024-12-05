@@ -1,4 +1,4 @@
-**Real Estate Price Prediction Project**
+**Real Estate Price Prediction**
 **Project Overview:**
 This project uses machine learning to predict real estate prices based on factors like location, size, number of bedrooms, and more. The goal is to help buyers, sellers, and agents make informed decisions.
 
