@@ -1,105 +1,119 @@
 # Real Estate Price Prediction
 
-This project leverages Python and machine learning to predict real estate prices based on features like property size, location, and market trends. The goal is to provide accurate price estimates and uncover key factors driving real estate values.
+This project aims to predict real estate prices in Bangalore, India, using a dataset of property features such as location, size, number of bathrooms, and total square footage. The goal is to build a machine learning model that can accurately predict property prices.
 
 ---
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
+- [Overview](#overview)
 - [Dataset](#dataset)
+- [Key Steps](#key-steps)
 - [Technologies Used](#technologies-used)
-- [Modeling Approach](#modeling-approach)
+- [Project Workflow](#project-workflow)
 - [Results](#results)
 - [How to Run the Project](#how-to-run-the-project)
-- [Future Enhancements](#future-enhancements)
+- [Future Improvements](#future-improvements)
+  
 
 ---
 
-## Introduction
-Real estate prices are influenced by multiple factors such as location, property size, and market conditions. This project builds a machine learning model to analyze historical data and predict prices. 
+## Overview
 
-By using exploratory data analysis (EDA) and regression models, this project provides insights into the features that have the most impact on real estate prices and develops a robust prediction model.
-
----
-
-## Features
-- **Exploratory Data Analysis (EDA):** Data visualization to identify key trends and correlations.
-- **Data Preprocessing:** Handling missing values, feature scaling, and encoding categorical variables.
-- **Model Training:** Implementation of regression models like Linear Regression and Random Forest.
-- **Evaluation Metrics:** Use of R-squared and Mean Absolute Error (MAE) to assess model performance.
+This project is an end-to-end machine learning pipeline for predicting housing prices. The dataset contains information on property location, size, number of bathrooms, total area, and the selling price. Using these features, we preprocess the data, train a regression model, and evaluate its performance.
 
 ---
 
 ## Dataset
-The dataset contains real estate property information, including:
-- Property Size (square feet)
-- Location (encoded)
-- Number of Rooms
-- Market Price
 
-### Note:
-The dataset is sourced from [add source here if public]. If unavailable, users can use similar datasets.
+The dataset contains the following columns:
+- **Location**: The area or neighborhood where the property is located.
+- **Size**: Number of bedrooms (e.g., "2 BHK").
+- **Total Sqft**: Total area of the property in square feet.
+- **Bath**: Number of bathrooms.
+- **Price**: Price of the property in lakhs (1 lakh = 100,000 INR).
+
+### Data Source
+The dataset is sourced from an open dataset containing Bangalore real estate information.
+
+---
+
+## Key Steps
+
+1. **Data Cleaning**:
+   - Removed rows with missing or invalid data.
+   - Standardized the `size` and `total_sqft` columns.
+2. **Feature Engineering**:
+   - Created a `price_per_sqft` column.
+   - Grouped rare locations under a single "other" category.
+   - Removed outliers based on domain-specific rules.
+3. **Exploratory Data Analysis (EDA)**:
+   - Visualized price trends and distributions.
+   - Analyzed relationships between features and property prices.
+4. **Model Building**:
+   - Used a **Linear Regression** model for prediction.
+5. **Evaluation**:
+   - Evaluated the model using metrics like R-squared and Mean Absolute Error (MAE).
 
 ---
 
 ## Technologies Used
-- **Programming Language:** Python
-- **Libraries:** pandas, numpy, matplotlib, seaborn, scikit-learn
+
+- **Python**: Programming language for data analysis and modeling.
+- **Libraries**:
+  - `pandas`: For data manipulation.
+  - `numpy`: For numerical operations.
+  - `matplotlib` and `seaborn`: For data visualization.
+  - `scikit-learn`: For machine learning model building and evaluation.
 
 ---
 
-## Modeling Approach
-1. **EDA:**
-   - Visualized data distributions and correlations.
-   - Identified outliers and missing values.
-2. **Data Preprocessing:**
-   - Handled missing values using imputation.
-   - Scaled numerical features and encoded categorical variables.
-3. **Model Training:**
-   - Built and compared multiple regression models.
-   - Hyperparameter tuning for Random Forest Regressor.
-4. **Evaluation:**
-   - Evaluated model accuracy with R-squared and MAE metrics.
+## Project Workflow
+
+1. Load the dataset and explore its structure.
+2. Clean and preprocess the data:
+   - Handle missing values and irregular entries.
+   - Standardize columns like `size` and `total_sqft`.
+3. Perform exploratory data analysis:
+   - Identify trends and outliers.
+   - Visualize important relationships.
+4. Engineer features and remove outliers.
+5. Train a **Linear Regression** model to predict prices.
+6. Evaluate the model's performance using:
+   - R-squared: Indicates how well the model explains the variance in the data.
+   - Mean Absolute Error (MAE): Measures the average error in price prediction.
 
 ---
 
 ## Results
-- **Best Model:** [Add the name of the best model, e.g., Random Forest Regressor]
-- **Performance:**
-  - R-squared: [Add value]
-  - MAE: [Add value]
-- Key factors influencing price: [List important features like location, size, etc.]
+
+- **Best Model**: Linear Regression
+- **Performance**:
+  - R-squared: ~0.8
+  - Mean Absolute Error (MAE): ~5 lakhs
+
+Key factors influencing the property price:
+1. **Location**: Prime locations significantly increase property value.
+2. **Size (Total Sqft)**: Larger properties generally cost more.
+3. **Number of Bedrooms and Bathrooms**: Higher configuration properties are priced higher.
+4. **Price Per Sqft**: A key determinant of property value.
 
 ---
 
 ## How to Run the Project
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/reihan114/Real_Estate_Price_prediction.git
-   ```
-2. Navigate to the project directory:
-   ```bash
    cd Real_Estate_Price_prediction
-   ```
-3. Install dependencies:
-   ```bash
+2. Install the required Python libraries:
    pip install -r requirements.txt
-   ```
-4. Run the Jupyter Notebook:
-   ```bash
-   jupyter notebook RealEstatePricePrediction.ipynb
-   ```
+3. Open the Jupyter Notebook:
+   jupyter notebook jupyter notebook banglore_home_prices_final.ipynb
+4. Run the notebook cells to process the data, train the model and view the results.
+## Future Improvements
+1. Use advanced machine learning models like Random Forest, Gradient Boosting 
+   (XGBoost/LightGBM), or Neural Networks for improved predictions.
+2. Incorporate additional features such as Distance to key landmarks
 
----
 
-## Future Enhancements
-- **Feature Engineering:** Incorporate more features like proximity to schools, crime rates, etc.
-- **Advanced Models:** Experiment with Gradient Boosting or Neural Networks for improved accuracy.
-- **Deployment:** Build a user interface using Flask or Streamlit for real-time predictions.
-- **Visualization Dashboard:** Create an interactive dashboard for data exploration.
-
----
-
-Feel free to explore the code, provide feedback, or suggest improvements!
 
